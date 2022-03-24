@@ -1,0 +1,4 @@
+#!/bin/bash
+P=0
+which python >>/dev/null
+if [ $? = $P ]; then echo 'python, online'  ;else printf "python não encontrado\n" ;fi
