@@ -1,0 +1,19 @@
+#!/usr/bin/env/ bash
+python logo.py
+MI="Cartão interna"   ;C="cartão externo"
+V=" \e[33;49m"        ;S="cartão de app-estalados"
+DF="\e[0m"            ;VR="\e[33;41m"
+htm --help  >>log ;B=$(A=$(cat log) ;echo $A | cut -d" " -f5-6) ;echo -e "$VR $B $DF"
+B=$(A=$(df | grep 'data/media') ;echo $A | cut -d" " -f5)
+
+echo  -e "$V [+] $MI $B $DF"
+
+z=$(a=$(df | grep 'mnt/media') ;echo $a | cut -d" " -f5)
+
+echo -e "$V [+] $C $z $DF"
+
+BB=$(AA=$(df | grep "/dev/block/dm-0") ;echo $AA | cut -d" " -f5)
+
+echo -e "$V [+] $S $BB $DF"
+
+rm log
